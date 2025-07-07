@@ -11,10 +11,15 @@ Este proyecto aplica un proceso ETL sobre datos meteorológicos históricos (199
 ## 📁 Estructura del proyecto
 
 etl_clima_zonas_argentinas/
+
 ├── data/ # Archivos originales y CSV transformado
+
 ├── notebooks/ # Proceso ETL en Jupyter Notebook
+
 ├── sql/ # Scripts SQL (opcional)
+
 ├── src/ # Código adicional (si aplica)
+
 └── README.md
 
 
