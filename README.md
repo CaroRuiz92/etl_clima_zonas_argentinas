@@ -16,9 +16,9 @@ etl_clima_zonas_argentinas/
 
 ├── notebooks/ # Proceso ETL en Jupyter Notebook
 
-├── sql/ # Scripts SQL (opcional)
+├── sql/ # Scripts SQL
 
-├── src/ # Código adicional (si aplica)
+├── src/ # Código adicional (si es necesario)
 
 └── README.md
 
