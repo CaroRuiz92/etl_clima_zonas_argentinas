@@ -12,11 +12,9 @@ CREATE TABLE df_climas_arg (
     temperat_max_c FLOAT,
     temperat_min_c FLOAT,
     veloc_kmh_viento_2011_2020 FLOAT,
-    lat_gr FLOAT,
-    lat_min FLOAT,
-    lon_gr FLOAT,
-    lon_min FLOAT,
-    altura_m INT
+    altura_m INT,
+	latitud FLOAT,
+	longitud FLOAT
 );
 
 -- Consultas generales para chequear la calidad de datos
