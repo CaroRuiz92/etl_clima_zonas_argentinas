@@ -7,7 +7,7 @@ Este proyecto aplica un proceso ETL sobre datos meteorológicos históricos (199
 - Python (Pandas, Seaborn, Statsmodels, Jupyter)
 - SQL Server
 - Git + GitHub
-- Power BI (complementario)
+- Power BI (complementario, agregado a futuro cercano)
 
 ## 📁 Estructura del proyecto
 
