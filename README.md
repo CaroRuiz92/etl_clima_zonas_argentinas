@@ -1,12 +1,13 @@
 # ETL de datos climáticos por zonas de Argentina
 
-Este proyecto aplica un proceso ETL sobre datos meteorológicos históricos (1991–2020) del Servicio Meteorológico Nacional (SMN), correspondientes a estaciones ubicadas en distintas regiones del país. El objetivo es limpiar, transformar y preparar los datos para su posterior análisis y carga en una base de datos SQL Server.
+Este proyecto aplica un proceso ETL sobre datos meteorológicos históricos (1991–2020) del Servicio Meteorológico Nacional (SMN), correspondientes a estaciones ubicadas en distintas regiones del país. El objetivo es limpiar, transformar y preparar los datos para su análisis en SQL Server, visualización con Python y modelado predictivo.
 
 ## 🧰 Tecnologías utilizadas
 
-- Python (Pandas, Jupyter)
+- Python (Pandas, Seaborn, Statsmodels, Jupyter)
 - SQL Server
 - Git + GitHub
+- Power BI (complementario)
 
 ## 📁 Estructura del proyecto
 
@@ -14,11 +15,9 @@ etl_clima_zonas_argentinas/
 
 ├── data/ # Archivos originales y CSV transformado
 
-├── notebooks/ # Proceso ETL en Jupyter Notebook
+├── notebooks/ # Proceso ETL, carga, análisis y modelo
 
-├── sql/ # Scripts SQL
-
-├── src/ # Código adicional (si es necesario)
+├── sql/ # Script de carga a SQL Server
 
 └── README.md
 
@@ -26,27 +25,31 @@ etl_clima_zonas_argentinas/
 ## 🔄 Proceso ETL
 
 ### 1. Extracción
-Se utilizaron dos archivos del SMN (Servicio Meteorológico Nacional):
-- Una lista de estaciones meteorológicas con su ubicación.
-- Datos climáticos promedio del período 1991–2020.
+- Datos descargados del SMN:
+  - Lista de estaciones meteorológicas con su ubicación.
+  - Estadísticas climáticas promedio del período 1991–2020.
 
 ### 2. Transformación
 - Selección de 7 estaciones representativas: Rosario, Salta, Bariloche, Mendoza, Aeroparque, Iguazú y Base Esperanza.
-- Conversión de tipos, limpieza de valores, reorganización de columnas y estandarización.
-- Exportación del DataFrame final a CSV (`data/df_climas_arg.csv`).
+- Conversión de tipos, limpieza de nulos, combinación de ubicaciones geográficas y reorganización de columnas.
+- Exportación a `data/df_climas_arg.csv`.
 
-### 3. Carga (en desarrollo)
-- El archivo CSV está listo para ser cargado a una base de datos SQL Server.
+### 3. Carga a SQL Server
+- La tabla fue creada y cargada a una base de datos SQL Server utilizando `pyodbc` y scripts SQL incluidos en `/sql`.
+
+## 📊 Análisis y modelo predictivo
+
+- Se realizaron visualizaciones exploratorias por provincia, época y variable climática (temperatura, humedad, viento, etc.).
+- Se entrenó un modelo de regresión lineal múltiple con Statsmodels para predecir la temperatura media (`temperat_c`), logrando un R² ajustado de 0.91.
+- Se incorporaron variables dummy para provincias y estaciones del año.
 
 ## ▶️ Cómo ejecutar
 
-1. Clonar este repositorio.
-2. Abrir el notebook `notebooks/etl_transform.ipynb`.
-3. Ejecutar las celdas paso a paso.
-4. El resultado final se guarda en `data/df_climas_arg.csv`.
+1. Cloná este repositorio.
+2. Abrí los notebooks en la carpeta `notebooks/`.
+3. Ejecutá primero el ETL (`etl_transform.ipynb`) y luego los de carga y análisis.
+4. El archivo transformado se guarda en `data/df_climas_arg.csv`.
 
 ## 📌 Estado del proyecto
 
-🔧 En desarrollo.
-
----
+✅ Proyecto completo y funcional (aunque con posibles mejoras nuevas).
